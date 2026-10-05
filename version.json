@@ -1,6 +1,6 @@
 {
-  "build": 6,
+  "build": 7,
   "version": "1.1",
-  "notes": "Clearer Safari setup.",
+  "notes": "Automatic updates: HonestHands can now update itself.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }

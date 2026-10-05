@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>HonestHands</title>
+    <item>
+      <title>Version 1.1 (build 7)</title>
+      <pubDate>Mon, 05 Oct 2026 20:08:49 -0000</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[Automatic updates: HonestHands can now update itself.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="CQwE4Hxxb7QUR+jhp92Z0/zYFk1lW9vRnRnHqakQgYB1nNwoYNphSV0rP6iwcJy8CYbkJ+iIhl5NL/wuusE/BA==" length="40654247"/>
+    </item>
+  </channel>
+</rss>
