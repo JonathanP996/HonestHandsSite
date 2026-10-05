@@ -1,0 +1,49 @@
+/* ---- the scenes ---- */
+.oart .f-il{fill:#C99ACB}.oart .f-il2{fill:#E8D3EA}.oart .f-lm{fill:#C6D44A}.oart .f-lm2{fill:#DDE79A}.oart .f-pl{fill:#8B5B7E}.oart .f-pp{fill:#FFFDF8}
+.oart .f-sun{fill:#F5CF6B}.oart .f-ck{fill:#F2A2B6}.oart .f-ol{fill:#1D2F2A}.oart .f-bd{fill:var(--ob2);stroke:none;opacity:.55}.oart .f-sh{fill:rgba(29,47,42,.14);stroke:none}
+.oart .f-scr{fill:#2B3D37}.oart .f-glass{fill:rgba(255,255,255,.55)}.oart .f-ck.a-nos,.oart .f-ck{stroke:none}.oart ellipse.f-ck{opacity:.75}
+.oart .f-ol,.oart .a-nos{stroke:none}
+@keyframes odraw{to{stroke-dashoffset:0}}
+@keyframes ofillin{from{fill-opacity:0}}
+@keyframes opop{from{transform:scale(0);opacity:0}}
+.oart *{transform-box:fill-box;transform-origin:center}
+.a-lay-b{translate:calc(var(--mx) * -7px) calc(var(--my) * -5px);transition:translate .3s ease-out}.a-lay-f{translate:calc(var(--mx) * 5px) calc(var(--my) * 3px);transition:translate .3s ease-out}
+.a-popin{animation:opop .8s .1s cubic-bezier(.3,1.3,.5,1) both}
+.a-ring{stroke:var(--ob2);stroke-width:2;stroke-dasharray:3 9;animation:ospin 40s linear infinite}@keyframes ospin{to{rotate:360deg}}
+.a-twk{animation:otwk 2.4s ease-in-out infinite;animation-delay:var(--td,0s)}@keyframes otwk{0%,100%{transform:scale(.4) rotate(0);opacity:.5}50%{transform:scale(1.1) rotate(25deg);opacity:1}}
+.a-bob{animation:obob 3.2s ease-in-out infinite;animation-delay:var(--bd,0s);transform-origin:50% 100%}@keyframes obob{50%{transform:translateY(-4px) scaleY(1.025)}}
+.a-shb{animation:oshb 3.2s ease-in-out infinite;animation-delay:var(--bd,0s)}@keyframes oshb{50%{transform:scaleX(.88);opacity:.7}}
+.a-blink{animation:oblink 4.4s infinite}@keyframes oblink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.a-flt{animation:oflt 4.6s ease-in-out infinite;animation-delay:var(--fd,0s)}@keyframes oflt{50%{transform:translateY(-6px)}}
+.a-arm{transform-origin:0% 100%}.a-armu-l{transform-origin:100% 100%}.a-armh{transform-origin:0% 50%}
+.a-armw{animation:owave 1.1s ease-in-out infinite}@keyframes owave{0%,100%{rotate:-8deg}50%{rotate:18deg}}
+.a-armu-r{animation:ocheer 1.2s ease-in-out infinite}.a-armu-l{animation:ocheer 1.2s -.6s ease-in-out infinite reverse}@keyframes ocheer{0%,100%{rotate:-6deg}50%{rotate:10deg}}
+.a-armf{animation:ofive 1.8s ease-in-out infinite}@keyframes ofive{0%,100%{rotate:6deg}50%{rotate:-14deg}}
+.a-armh{animation:ohold 2.6s ease-in-out infinite}@keyframes ohold{50%{rotate:-5deg}}
+.a-hrt{animation:ohrt 2.8s ease-in-out infinite;animation-delay:var(--hd,0s)}@keyframes ohrt{0%,100%{transform:translateY(0) scale(.9)}50%{transform:translateY(-8px) scale(1.12)}}
+.a-hrt5{animation:ohrt5 1.9s ease-out infinite;animation-delay:var(--hd,0s);opacity:0}@keyframes ohrt5{0%{transform:translateY(8px) scale(.4);opacity:0}30%{opacity:1}100%{transform:translateY(-34px) scale(1.1);opacity:0}}
+.a-nail{animation:onail 2.4s ease-in-out infinite}@keyframes onail{50%{transform:scale(1.5)}}
+.a-keyj{animation:okey 2.4s ease-in-out infinite}@keyframes okey{50%{rotate:-8deg}}
+.a-steam{stroke-width:2;opacity:0;animation:ostm 2.4s ease-out infinite;animation-delay:var(--sd,0s)}@keyframes ostm{0%{transform:translateY(6px);opacity:0}40%{opacity:.8}100%{transform:translateY(-8px);opacity:0}}
+.a-shield{animation:oshd 3.6s ease-in-out infinite}@keyframes oshd{50%{transform:scale(1.03) rotate(-1.2deg)}}
+.a-keyhole{animation:okh 3.6s ease-in-out infinite}@keyframes okh{0%,35%{opacity:1;transform:none}45%,70%{opacity:0;transform:scale(.6)}80%,100%{opacity:1;transform:none}}
+.a-scheck{stroke-width:5;stroke:#5F6D12;stroke-dasharray:1;stroke-dashoffset:1;animation:oscheck 3.6s ease-in-out infinite}@keyframes oscheck{0%,38%{stroke-dashoffset:1}50%,70%{stroke-dashoffset:0}80%,100%{stroke-dashoffset:1}}
+.a-bell{animation:obell 3s ease-in-out infinite;transform-origin:50% 0}@keyframes obell{0%,60%,100%{rotate:0}66%{rotate:14deg}72%{rotate:-12deg}78%{rotate:8deg}84%{rotate:-5deg}}
+.a-sw{opacity:0;animation:osw 3s ease-out infinite;animation-delay:calc(1.9s + var(--sd,0s))}@keyframes osw{0%{opacity:0;transform:translateX(-4px)}20%{opacity:1}60%,100%{opacity:0;transform:translateX(3px)}}
+.a-chip{animation:ochip 2.8s ease-in-out infinite}@keyframes ochip{50%{transform:scale(1.05)}}
+.a-chiptx{font:800 15px var(--sans);fill:#1D2F2A;stroke:none}
+.a-lvl{fill:rgba(169,182,32,.4);stroke:none;animation:olvl 4s ease-in-out infinite;transform-origin:50% 100%}@keyframes olvl{0%{transform:scaleY(.05)}70%,100%{transform:scaleY(1)}}
+.a-dl{animation:odl 2s ease-in infinite;stroke:#8B5B7E}@keyframes odl{0%{transform:translateY(-6px);opacity:0}25%{opacity:1}100%{transform:translateY(34px);opacity:0}}
+.a-okb{animation:ookb 4s ease-in-out infinite}@keyframes ookb{0%,60%{transform:scale(0)}70%{transform:scale(1.2)}78%,100%{transform:scale(1)}}
+.a-okc{stroke-width:3.4;stroke-dasharray:1}
+.a-slot{fill:none;stroke:#8B5B7E;stroke-dasharray:3 3;stroke-width:1.8}
+.a-pz{animation:opz 4s ease-in-out infinite}@keyframes opz{0%{transform:translate(-110px,40px) rotate(-50deg)}45%,100%{transform:none}}
+.a-clk{stroke:#8B5B7E;opacity:0;animation:oclk 3.4s ease-out infinite}@keyframes oclk{0%,55%{opacity:0;transform:scale(.2)}62%{opacity:1}100%{opacity:0;transform:scale(2.4)}}
+.a-cur{animation:ocur 3.4s ease-in-out infinite}@keyframes ocur{0%,100%{transform:translate(0,0)}35%{transform:translate(20px,-22px)}55%{transform:translate(20px,-22px) scale(.9)}75%{transform:translate(-6px,6px)}}
+.a-lt{stroke:#8B5B7E;stroke-width:3.4}
+.a-tdot{animation:otd 1.3s ease-in-out infinite;animation-delay:var(--t,0s)}@keyframes otd{0%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-4px);opacity:1}}
+.a-burst{stroke:#8B5B7E;stroke-width:3;animation:obst 1.9s ease-out infinite}@keyframes obst{0%,40%{transform:scale(.3);opacity:0}55%{opacity:1}100%{transform:scale(1.25);opacity:0}}
+.a-hl{fill:#F5CF6B;stroke:none;opacity:.8;animation:ohl 3.6s ease-in-out infinite;transform-origin:left}@keyframes ohl{0%{transform:scaleX(0)}55%,100%{transform:scaleX(1)}}
+.a-mag{animation:omg 4s ease-in-out infinite}@keyframes omg{0%,100%{transform:translate(-30px,-10px)}50%{transform:translate(-24px,2px) rotate(-6deg)}}
+
+@media (prefers-reduced-motion:reduce){.oart *{animation:none!important}.a-scheck,.a-okc{stroke-dashoffset:0}.a-hrt5,.a-sw,.a-steam,.a-clk{opacity:0}}

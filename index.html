@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HonestHands: keep AI a tutor, not a shortcut</title>
+<meta name="description" content="A free Mac app that checks every message you're about to send to an AI against your class's own rules, and warns you first. Private, on-device, with optional friend accountability.">
+<meta property="og:title" content="HonestHands">
+<meta property="og:description" content="Keep AI a tutor, not a shortcut. A Mac app that checks your prompts against your class's own rules before you send them.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="scenes.css">
+<style>
+:root{
+  --ink:#1D2F2A; --ink2:#3A4F46; --muted:#5A6C63; --bg:#F6F0F5; --card:rgba(255,255,255,.66);
+  --btn:#14201C; --btn-ink:#fff; --line:rgba(29,47,42,.12);
+  --obi:#1D2F2A; --ob2:#D9B6DD;
+  --carve:"Optima","Candara","Gill Sans","Gill Sans MT",sans-serif; --fig:"Didot","Hoefler Text",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{--ink:#F2ECF1;--ink2:#D5CDD3;--muted:#B5A9B4;--bg:#142320;--card:rgba(0,0,0,.24);--btn:#F2ECF1;--btn-ink:#14201C;--line:rgba(255,255,255,.14);--obi:#F2ECF1;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+/* bands: each section is its own pastel page, like the app's setup */
+.band{--ob:#E9D6EC;--ob2:#D9B6DD;background:var(--ob);position:relative;overflow:hidden;padding:clamp(56px,9vw,104px) 0;transition:background .4s}
+.band.lilac{--ob:#E9D6EC;--ob2:#D9B6DD}.band.mint{--ob:#DCE8C4;--ob2:#C6D88F}.band.sky{--ob:#D4E6E0;--ob2:#A9CFC4}
+.band.sand{--ob:#EBE0D2;--ob2:#DCC9AE}.band.rose{--ob:#F4DBE5;--ob2:#EAB4C9}.band.olive{--ob:#E8ECC4;--ob2:#CFD97A}
+@media (prefers-color-scheme:dark){
+  .band.lilac{--ob:#3A2B3D;--ob2:#55405A}.band.mint{--ob:#2C3A22;--ob2:#46592F}.band.sky{--ob:#22393A;--ob2:#35595A}
+  .band.sand{--ob:#3A3329;--ob2:#574B3B}.band.rose{--ob:#402B35;--ob2:#5E3E4C}.band.olive{--ob:#38401E;--ob2:#566226}}
+.band::before{content:"";position:absolute;width:46vmax;height:46vmax;left:-20vmax;top:-26vmax;border-radius:50%;background:var(--ob2);opacity:.4;animation:drift 16s ease-in-out infinite alternate;pointer-events:none}
+.band.flip::before{left:auto;right:-20vmax}
+@keyframes drift{to{transform:translate(4vmax,3vmax) scale(1.12)}}
+.band>.wrap{position:relative}
+
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--carve);font-weight:700;font-size:19px;text-decoration:none}
+.brand svg{width:30px;height:30px;padding:5px;border-radius:10px;background:linear-gradient(150deg,#EBD3EC,#C99ACB);color:#1D2F2A}
+nav .links{display:flex;align-items:center;gap:22px;font-size:15px;font-weight:600}
+nav .links a{text-decoration:none;opacity:.75;transition:opacity .2s}nav .links a:hover{opacity:1}
+nav .links .pill{opacity:1;background:var(--btn);color:var(--btn-ink);padding:8px 16px;border-radius:999px}
+@media (max-width:640px){nav .links a:not(.pill){display:none}}
+
+.hero{text-align:center;padding-top:clamp(36px,6vw,70px)}
+.hero .art{max-width:430px;margin:0 auto}
+h1{font-family:var(--carve);font-size:clamp(38px,6.4vw,68px);line-height:1.04;letter-spacing:-1.2px;font-weight:700;margin:6px 0 16px}
+h2{font-family:var(--carve);font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-.6px;font-weight:700;margin-bottom:12px}
+.lead{font-size:clamp(17px,2vw,20px);max-width:36em;margin:0 auto 26px;color:var(--ink2)}
+.dl{display:inline-flex;align-items:center;gap:12px;background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:700;font-size:18px;padding:18px 34px;border-radius:999px;box-shadow:0 16px 30px -14px rgba(20,32,28,.7);transition:transform .18s cubic-bezier(.3,1.5,.4,1),box-shadow .2s;position:relative;overflow:hidden}
+.dl:hover{transform:translateY(-3px) scale(1.02)}.dl:active{transform:scale(.97)}
+.dl svg{width:22px;height:22px;transition:transform .3s cubic-bezier(.3,1.6,.4,1)}.dl:hover svg{transform:translateY(3px)}
+.dl::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-18deg);animation:shine 3.6s 1.2s ease-in-out infinite}
+@keyframes shine{0%,70%{left:-60%}100%{left:140%}}
+.fine{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.verse{font-family:var(--fig);font-style:italic;color:var(--muted);max-width:44em;margin:34px auto 0;font-size:15px}
+.verse b{font-family:var(--carve);font-style:normal;font-weight:600;letter-spacing:.5px;font-size:13px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.split.rev .art{order:-1}
+@media (max-width:760px){.split{grid-template-columns:1fr}.split.rev .art{order:0}}
+.split p{color:var(--ink2);margin-bottom:12px}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--card);margin-bottom:14px}
+.art{max-width:420px;width:100%;margin:0 auto;--mx:0;--my:0}
+.ticks{list-style:none;padding:0;margin-top:14px;display:grid;gap:8px}
+.ticks li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:var(--ink2)}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--btn);color:var(--btn-ink);font-size:12px;font-weight:800;display:grid;place-items:center;margin-top:2px}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;text-align:left;counter-reset:s}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.steps div{background:var(--card);border-radius:22px;padding:22px;counter-increment:s}
+.steps div::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--btn);color:var(--btn-ink);font-weight:800;margin-bottom:12px}
+.steps b{display:block;font-size:18px;margin-bottom:4px;font-family:var(--carve)}.steps span{font-size:15px;color:var(--ink2)}
+.center{text-align:center}.center .lead{margin-bottom:0}
+
+.faq{max-width:760px;margin:30px auto 0;display:grid;gap:10px;text-align:left}
+details{background:var(--card);border-radius:20px;padding:4px 22px;transition:background .2s}
+summary{cursor:pointer;font-weight:700;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:17px}
+summary::after{content:"+";font-size:22px;line-height:1;transition:transform .25s}details[open] summary::after{transform:rotate(45deg)}
+summary::-webkit-details-marker{display:none}
+details p{color:var(--ink2);padding:0 0 18px;font-size:15.5px}
+footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:14px}
+footer .verse{margin:0 auto 14px}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.9,.25,1),transform .8s cubic-bezier(.2,.9,.25,1)}.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+.hero h1 span{display:inline-block;animation:up .8s cubic-bezier(.2,.9,.25,1) both}
+@keyframes up{from{opacity:0;transform:translateY(40px) rotate(3deg)}}
+.oart{width:100%;height:auto;display:block;overflow:visible;stroke:var(--obi);stroke-width:2.6;fill:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.band::before,.dl::after,.hero h1 span{animation:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V5.5a1.3 1.3 0 0 1 2.6 0V10"/><path d="M10.6 10V4.4a1.3 1.3 0 0 1 2.6 0V10"/><path d="M13.2 10.2V5.4a1.3 1.3 0 0 1 2.6 0V12"/><path d="M15.8 12V8.6a1.3 1.3 0 0 1 2.5 0c0 3.2.1 4.4-.6 6.3-.8 2.2-2.4 3.6-4.8 3.6-2 0-3.2-.5-4.4-1.9l-2.7-3.2a1.35 1.35 0 0 1 1.9-1.9L7 11"/><circle cx="12.4" cy="14.6" r="1.35" fill="#8B5B7E" stroke="none"/></svg>HonestHands</a>
+  <div class="links"><a href="#how">How it works</a><a href="#install">Install</a><a href="#faq">FAQ</a><a class="pill" href="HonestHands.dmg" download>Download</a></div>
+</div></nav>
+
+<header class="band lilac hero" id="top"><div class="wrap">
+  <div class="art" data-art="welcome"></div>
+  <h1><span style="animation-delay:.1s">Keep</span> <span style="animation-delay:.18s">AI</span> <span style="animation-delay:.26s">a</span> <span style="animation-delay:.34s">tutor,</span> <span style="animation-delay:.42s">not</span> <span style="animation-delay:.5s">a</span> <span style="animation-delay:.58s">shortcut.</span></h1>
+  <p class="lead">HonestHands checks every message you’re about to send to an AI against <b>your class’s own rules</b> and warns you first. You can always send anyway. It’s just recorded.</p>
+  <a class="dl" href="HonestHands.dmg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Mac</a>
+  <p class="fine">Free · macOS, Apple silicon · about 2 GB of AI downloads once, on first launch</p>
+  <p class="verse">“Let the thief no longer steal, but rather let him labor, doing honest work with his own hands, so that he may have something to share with anyone in need.” <b>Ephesians 4:28</b></p>
+</div></header>
+
+<section class="band mint flip" id="how"><div class="wrap split">
+  <div class="rv"><span class="tag">Your syllabus is the rulebook</span><h2>It knows what your professor allows.</h2>
+    <p>Add a class with its syllabus (PDF, Word, or pasted text). HonestHands pulls out the parts about AI and outside help, word for word, and shows them to you.</p>
+    <ul class="ticks"><li>Catches pasted or reworded homework questions</li><li>Lets ordinary concept questions through</li><li>Reads screenshots of your homework, too</li></ul></div>
+  <div class="art rv d1" data-art="klass"></div>
+</div></section>
+
+<section class="band sky"><div class="wrap split rev">
+  <div class="rv"><span class="tag">Private by design</span><h2>The AI runs on your Mac.</h2>
+    <p>A small built-in AI does the checking, right on your computer. What you type is never sent to a server or a model provider.</p>
+    <ul class="ticks"><li>One-time download, then it works offline</li><li>Answers in well under a second</li><li>No account needed to use it</li></ul></div>
+  <div class="art rv d1" data-art="ai"></div>
+</div></section>
+
+<section class="band sand flip"><div class="wrap split">
+  <div class="rv"><span class="tag">Hard to get around</span><h2>One browser for AI. Every other one is blocked.</h2>
+    <p>Pick Chrome, Edge, Firefox or Safari. During a study session AI websites only work in that browser, and a tiny extension covers sites that hide their send button. The Claude and ChatGPT desktop apps are covered too.</p></div>
+  <div class="art rv d1" data-art="browser"></div>
+</div></section>
+
+<section class="band rose"><div class="wrap split rev">
+  <div class="rv"><span class="tag">Better together</span><h2>Let a friend hold you to it.</h2>
+    <p>Pair up with a friend, parent or mentor. Lock in for 30 minutes, an hour, or two, and the only ways out early are your accountability PIN or a friend releasing you.</p>
+    <ul class="ticks"><li><b>They see:</b> prompts you sent despite a warning, session times, daily counts</li><li><b>They never see:</b> your syllabi, assignments, or clean and flagged messages</li></ul></div>
+  <div class="art rv d1" data-art="account"></div>
+</div></section>
+
+<section class="band olive flip" id="install"><div class="wrap center">
+  <span class="tag">Takes about three minutes</span><h2>Install it in three steps.</h2>
+  <p class="lead rv">HonestHands isn’t code-signed yet, so macOS asks you to confirm the first time.</p>
+  <div class="steps">
+    <div class="rv"><b>Drag it in</b><span>Open the downloaded file and drag HonestHands to your Applications folder.</span></div>
+    <div class="rv d1"><b>Right-click, Open</b><span>The first time, right-click the app and choose <b>Open</b>, then confirm. After that it opens normally.</span></div>
+    <div class="rv d2"><b>Follow the setup</b><span>Allow Accessibility, let the AI download, pick your browser, and add your first class.</span></div>
+  </div>
+  <p style="margin-top:34px"><a class="dl" href="HonestHands.dmg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Mac</a></p>
+</div></section>
+
+<section class="band lilac" id="faq"><div class="wrap center">
+  <h2>Questions</h2>
+  <div class="faq">
+    <details><summary>Does it read everything I type?</summary><p>Only what you’re about to send in an AI app or AI website, and only while a study session is on. It’s checked on your Mac and never uploaded. If you create an account, only prompts you sent despite a warning, and counts, are shared with the friends you choose.</p></details>
+    <details><summary>Can I still send a flagged message?</summary><p>Yes. It’s a nudge, not a wall. Sending anyway is recorded as “overridden”, and that’s what a friend would see if you’ve paired up.</p></details>
+    <details><summary>Why does macOS warn me when I open it?</summary><p>The app isn’t signed with a paid Apple developer certificate yet. Right-click the app and choose Open the first time. Nothing is hidden: it’s a small program you can look through.</p></details>
+    <details><summary>Does it work on Windows or phones?</summary><p>Not yet. For now it covers AI apps and AI websites on a Mac.</p></details>
+    <details><summary>Can someone just quit it?</summary><p>Outside a timed lock-in, yes: it’s honor system plus accountability. In a timed lock-in the app relaunches itself if it’s force-quit, and the only ways out early are your PIN or a friend releasing you. A determined person with Terminal can still get around it, and we’d rather say that plainly.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="verse">“…doing honest work with his own hands.” <b>Ephesians 4:28</b></p>
+  <p>HonestHands · made with care for students who want to learn it for real.</p>
+</div></footer>
+
+<script src="art.js"></script>
+<script>
+document.querySelectorAll('[data-art]').forEach(h => {
+  h.innerHTML = `<svg class="oart" viewBox="0 0 400 240" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${OSCENES[h.dataset.art]()}</svg>`;
+  h.dataset.ready = '1';
+});
+// scenes draw themselves on when they scroll into view; text rises in
+const io = new IntersectionObserver((es) => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in'); io.unobserve(e.target);
+  const svg = e.target.querySelector && e.target.querySelector('.oart'); if (svg) inkArt(svg);
+}), { threshold: .25 });
+document.querySelectorAll('.rv, .hero .art').forEach(n => io.observe(n));
+document.querySelectorAll('.art').forEach(n => { if (!n.classList.contains('rv')) io.observe(n); });
+document.querySelectorAll('.art').forEach(oartParallax);
+</script>
+</body>
+</html>
