@@ -1,6 +1,6 @@
 {
-  "build": 5,
+  "build": 6,
   "version": "1.1",
-  "notes": "Safari extension is built in: no Xcode or developer menu needed.",
+  "notes": "Clearer Safari setup.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
