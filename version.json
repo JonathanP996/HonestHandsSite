@@ -1,6 +1,6 @@
 {
-  "build": 12,
+  "build": 14,
   "version": "1.1",
-  "notes": "Messages now has its own tab.",
+  "notes": "Alerts now show the HonestHands icon and open the app when clicked.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
