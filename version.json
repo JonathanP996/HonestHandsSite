@@ -1,6 +1,6 @@
 {
-  "build": 3,
+  "build": 5,
   "version": "1.1",
-  "notes": "Signed and notarized: opens with no security warning.",
+  "notes": "Safari extension is built in: no Xcode or developer menu needed.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
