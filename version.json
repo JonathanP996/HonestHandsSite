@@ -1,6 +1,6 @@
 {
-  "build": 8,
+  "build": 10,
   "version": "1.1",
-  "notes": "Test of automatic updating.",
+  "notes": "Settings now calls the AI card The Guard.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
