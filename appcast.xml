@@ -3,13 +3,13 @@
   <channel>
     <title>HonestHands</title>
     <item>
-      <title>Version 1.1 (build 11)</title>
-      <pubDate>Mon, 05 Oct 2026 21:38:21 -0000</pubDate>
-      <sparkle:version>11</sparkle:version>
+      <title>Version 1.1 (build 12)</title>
+      <pubDate>Mon, 05 Oct 2026 21:57:37 -0000</pubDate>
+      <sparkle:version>12</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[A popup now tells you when a new version is ready.]]></description>
-      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="JWjK/7pULBJ8fqnUMgAEYACHqMjC8CK+jl+x7L2ATeY9NAl1hrpthBMfjXfFMCSp+v72/hG7cOmW9L7it6o7Bw==" length="40654078"/>
+      <description><![CDATA[Messages now has its own tab.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="1t64JErq229f6ELq5zjLIudNk5CTzvY3taT+KN3tezTD8LD2NyjHurn/9SkYmhbeGXAgcjCV8pT3I12FyFkIBg==" length="40655309"/>
     </item>
   </channel>
 </rss>
