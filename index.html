@@ -163,13 +163,13 @@ footer .verse{margin:0 auto 14px}
 
 <section class="band olive flip" id="install"><div class="wrap center">
   <span class="tag">Takes about three minutes</span><h2>Install it in three steps.</h2>
-  <p class="lead rv">HonestHands isn’t notarized by Apple yet, so macOS asks you to approve it once.</p>
+  <p class="lead rv">HonestHands is signed and notarized by Apple, so it opens like any other Mac app.</p>
   <div class="steps">
     <div class="rv"><b>Drag it in</b><span>Open the downloaded file and drag HonestHands to your Applications folder.</span></div>
-    <div class="rv d1"><b>Allow it once</b><span>Double-click it. When macOS warns you, click <b>Done</b>, then go to System Settings › Privacy &amp; Security, scroll down and click <b>Open Anyway</b>. After that it opens normally.</span></div>
+    <div class="rv d1"><b>Open it</b><span>Double-click HonestHands. macOS may ask you to confirm it was downloaded from the internet. Click <b>Open</b>.</span></div>
     <div class="rv d2"><b>Follow the setup</b><span>Allow Accessibility, let the AI download, pick your browser, and add your first class.</span></div>
   </div>
-  <details style="max-width:640px;margin:26px auto 0;text-align:left;background:var(--card);border-radius:20px;padding:4px 22px"><summary>No “Open Anyway” button, or it says “damaged”?</summary><p>That’s macOS being cautious about an app that isn’t notarized yet. Open <b>Terminal</b>, paste this, press Return, then open the app again:<br><code style="display:block;margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.14);font-size:13.5px;overflow-x:auto">xattr -cr /Applications/HonestHands.app</code>Or: System Settings › Privacy &amp; Security › scroll down › <b>Open Anyway</b>.</p></details>
+  <details style="max-width:640px;margin:26px auto 0;text-align:left;background:var(--card);border-radius:20px;padding:4px 22px"><summary>macOS won’t open it?</summary><p>That’s macOS being cautious about an app that isn’t notarized yet. Open <b>Terminal</b>, paste this, press Return, then open the app again:<br><code style="display:block;margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.14);font-size:13.5px;overflow-x:auto">xattr -cr /Applications/HonestHands.app</code>Or: System Settings › Privacy &amp; Security › scroll down › <b>Open Anyway</b>.</p></details>
   <p style="margin-top:34px"><a class="dl" href="HonestHands.dmg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Mac</a></p>
 </div></section>
 
@@ -178,7 +178,7 @@ footer .verse{margin:0 auto 14px}
   <div class="faq">
     <details><summary>Does it read everything I type?</summary><p>Only what you’re about to send in an AI app or AI website, and only while a study session is on. It’s checked on your Mac and never uploaded. If you create an account, only prompts you sent despite a warning, and counts, are shared with the friends you choose.</p></details>
     <details><summary>Can I still send a flagged message?</summary><p>Yes. It’s a nudge, not a wall. Sending anyway is recorded as “overridden”, and that’s what a friend would see if you’ve paired up.</p></details>
-    <details><summary>Why does macOS warn me when I open it?</summary><p>The app isn’t signed with a paid Apple developer certificate yet. Click Open Anyway in System Settings › Privacy &amp; Security the first time. Nothing is hidden: it’s a small program you can look through.</p></details>
+    <details><summary>Why does macOS warn me when I open it?</summary><p>It shouldn’t: the app is signed and notarized by Apple. If macOS still blocks it, use System Settings › Privacy &amp; Security › Open Anyway. Nothing is hidden: it’s a small program you can look through.</p></details>
     <details><summary>Does it have a dark mode?</summary><p>Yes. HonestHands matches your Mac by default, and Settings lets you pick Light or Dark.</p></details>
     <details><summary>Does it work on Windows or phones?</summary><p>Not yet. For now it covers AI apps and AI websites on a Mac.</p></details>
     <details><summary>Can someone just quit it?</summary><p>Outside a timed lock-in, yes: it’s honor system plus accountability. In a timed lock-in the app relaunches itself if it’s force-quit, and the only ways out early are your PIN or a friend releasing you. A determined person with Terminal can still get around it, and we’d rather say that plainly.</p></details>
