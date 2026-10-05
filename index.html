@@ -86,6 +86,19 @@ details p{color:var(--ink2);padding:0 0 18px;font-size:15.5px}
 footer{padding:36px 0 46px;text-align:center;color:var(--muted);font-size:14px}
 footer .verse{margin:0 auto 14px}
 
+.mock{background:var(--card);border-radius:24px;padding:20px;max-width:430px;margin:0 auto;box-shadow:0 20px 40px -24px rgba(0,0,0,.35);text-align:left}
+.mk-top{display:flex;gap:12px;align-items:center;font-size:14.5px}.mk-top small{color:var(--muted)}
+.mk-av{width:36px;height:36px;border-radius:50%;background:#EBB4C9;color:#5a2a40;display:grid;place-items:center;font-weight:800;flex:none}
+.mk-q{font-family:var(--fig);font-style:italic;margin:12px 0 0;padding-left:12px;border-left:3px solid #B3394A;font-size:16px}
+.mk-note{margin-top:12px;padding:10px 13px;border-radius:14px;background:rgba(255,255,255,.55);font-size:14px;color:var(--ink2)}
+@media (prefers-color-scheme:dark){.mk-note{background:rgba(0,0,0,.25)}}
+.mk-note small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.7px;color:var(--muted);margin-bottom:2px}
+.mk-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mk-th,.mk-talk{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:8px 15px 8px 12px;font-weight:700;font-size:13.5px;border:2px solid var(--line);transition:transform .2s cubic-bezier(.3,1.6,.4,1)}
+.mk-th svg{width:18px;height:18px}.mk-th:hover,.mk-talk:hover{transform:translateY(-2px)}
+.mk-th.up{border-color:#4E8A3A;color:#2F6B22;background:#DDEFD3}.mk-th.down{border-color:#B3394A;color:#B3394A;background:#F7DFE2}
+@media (prefers-color-scheme:dark){.mk-th.up{background:#26391F;color:#B7DFA5}.mk-th.down{background:#472A30;color:#F08A92}}
+.mk-talk{padding-left:15px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.9,.25,1),transform .8s cubic-bezier(.2,.9,.25,1)}.rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
 .hero h1 span{display:inline-block;animation:up .8s cubic-bezier(.2,.9,.25,1) both}
@@ -136,6 +149,18 @@ footer .verse{margin:0 auto 14px}
   <div class="art rv d1" data-art="account"></div>
 </div></section>
 
+<section class="band mint"><div class="wrap split">
+  <div class="rv"><span class="tag">The Overridden Feed</span><h2>Honest, not harsh.</h2>
+    <p>When someone you watch sends a prompt despite a warning, it lands in your Overridden Feed. Give it a thumbs up if it looks fine, a thumbs down if it doesn’t, and tap <b>Let’s talk about this</b> to message them with the prompt already quoted.</p>
+    <p>And if the AI simply got it wrong, they can leave a note explaining what happened, so you see their side before you decide.</p></div>
+  <div class="rv d1"><div class="mock">
+    <div class="mk-top"><span class="mk-av">B</span><div><b>Bob</b> sent this despite a warning<small> · Intro to ML</small></div></div>
+    <div class="mk-q">“convert this into LaTeX”</div>
+    <div class="mk-note"><small>BOB SAYS</small>The AI misread it. I was only formatting my own answer.</div>
+    <div class="mk-act"><span class="mk-th up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3z"/><path d="M7 11l4-8c1.7 0 3 1.3 3 3v3.5h5a2 2 0 0 1 2 2.3l-1.2 7a2 2 0 0 1-2 1.7H7"/></svg>Fine</span><span class="mk-th down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:scaleY(-1)"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3z"/><path d="M7 11l4-8c1.7 0 3 1.3 3 3v3.5h5a2 2 0 0 1 2 2.3l-1.2 7a2 2 0 0 1-2 1.7H7"/></svg>Not okay</span><span class="mk-talk">Let’s talk about this</span></div>
+  </div></div>
+</div></section>
+
 <section class="band olive flip" id="install"><div class="wrap center">
   <span class="tag">Takes about three minutes</span><h2>Install it in three steps.</h2>
   <p class="lead rv">HonestHands isn’t notarized by Apple yet, so macOS asks you to approve it once.</p>
@@ -154,6 +179,7 @@ footer .verse{margin:0 auto 14px}
     <details><summary>Does it read everything I type?</summary><p>Only what you’re about to send in an AI app or AI website, and only while a study session is on. It’s checked on your Mac and never uploaded. If you create an account, only prompts you sent despite a warning, and counts, are shared with the friends you choose.</p></details>
     <details><summary>Can I still send a flagged message?</summary><p>Yes. It’s a nudge, not a wall. Sending anyway is recorded as “overridden”, and that’s what a friend would see if you’ve paired up.</p></details>
     <details><summary>Why does macOS warn me when I open it?</summary><p>The app isn’t signed with a paid Apple developer certificate yet. Click Open Anyway in System Settings › Privacy &amp; Security the first time. Nothing is hidden: it’s a small program you can look through.</p></details>
+    <details><summary>Does it have a dark mode?</summary><p>Yes. HonestHands matches your Mac by default, and Settings lets you pick Light or Dark.</p></details>
     <details><summary>Does it work on Windows or phones?</summary><p>Not yet. For now it covers AI apps and AI websites on a Mac.</p></details>
     <details><summary>Can someone just quit it?</summary><p>Outside a timed lock-in, yes: it’s honor system plus accountability. In a timed lock-in the app relaunches itself if it’s force-quit, and the only ways out early are your PIN or a friend releasing you. A determined person with Terminal can still get around it, and we’d rather say that plainly.</p></details>
   </div>
