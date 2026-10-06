@@ -1,6 +1,6 @@
 {
   "url": "https://honesthands-site.vercel.app/HonestHands-Setup.exe",
-  "build": 16,
+  "build": 17,
   "version": "1.1",
-  "notes": "First Windows version."
+  "notes": "New alert card that matches the Mac one, and the AI download screen no longer reloads."
 }
