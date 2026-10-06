@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HonestHands: keep AI a tutor, not a shortcut</title>
-<meta name="description" content="A free Mac app that checks every message you're about to send to an AI against your class's own rules, and warns you first. Private, on-device, with optional friend accountability.">
+<meta name="description" content="A free Mac and Windows app that checks every message you're about to send to an AI against your class's own rules, and warns you first. Private, on-device, with optional friend accountability.">
 <meta property="og:title" content="HonestHands">
 <meta property="og:description" content="Keep AI a tutor, not a shortcut. A Mac app that checks your prompts against your class's own rules before you send them.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -99,6 +99,22 @@ footer .verse{margin:0 auto 14px}
 .mk-th.up{border-color:#4E8A3A;color:#2F6B22;background:#DDEFD3}.mk-th.down{border-color:#B3394A;color:#B3394A;background:#F7DFE2}
 @media (prefers-color-scheme:dark){.mk-th.up{background:#26391F;color:#B7DFA5}.mk-th.down{background:#472A30;color:#F08A92}}
 .mk-talk{padding-left:15px}
+
+/* download button that follows the visitor's computer */
+.detect{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;color:var(--muted);font-size:15.5px}
+.detect .sp{width:16px;height:16px;border:2.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+.detect.done .sp{display:none}.detect.done{color:var(--ink2);font-weight:600}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dl .osi{width:24px;height:24px;transition:none}.dl:hover .osi{transform:none}
+.dl[hidden],.dlrow[hidden],.also[hidden]{display:none}
+.dl.reveal{animation:dlpop .55s cubic-bezier(.3,1.5,.4,1) both}
+@keyframes dlpop{from{opacity:0;transform:translateY(14px) scale(.9)}}
+.dlrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.also{margin-top:8px;font-size:14.5px;color:var(--muted)}.also a{font-weight:700;text-underline-offset:3px}
+.ostag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:var(--card);margin:18px 0 6px}
+[data-os="mac"] .os-win,[data-os="windows"] .os-mac{display:none}
+[data-os="mac"] .ostag,[data-os="windows"] .ostag{display:none}
+@media (prefers-reduced-motion:reduce){.dl.reveal,.detect .sp{animation:none}}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.9,.25,1),transform .8s cubic-bezier(.2,.9,.25,1)}.rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
 .hero h1 span{display:inline-block;animation:up .8s cubic-bezier(.2,.9,.25,1) both}
@@ -110,15 +126,24 @@ footer .verse{margin:0 auto 14px}
 <body>
 <nav><div class="wrap">
   <a class="brand" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V5.5a1.3 1.3 0 0 1 2.6 0V10"/><path d="M10.6 10V4.4a1.3 1.3 0 0 1 2.6 0V10"/><path d="M13.2 10.2V5.4a1.3 1.3 0 0 1 2.6 0V12"/><path d="M15.8 12V8.6a1.3 1.3 0 0 1 2.5 0c0 3.2.1 4.4-.6 6.3-.8 2.2-2.4 3.6-4.8 3.6-2 0-3.2-.5-4.4-1.9l-2.7-3.2a1.35 1.35 0 0 1 1.9-1.9L7 11"/><circle cx="12.4" cy="14.6" r="1.35" fill="#8B5B7E" stroke="none"/></svg>HonestHands</a>
-  <div class="links"><a href="#how">How it works</a><a href="#install">Install</a><a href="#faq">FAQ</a><a class="pill" href="HonestHands.dmg" download>Download</a></div>
+  <div class="links"><a href="#how">How it works</a><a href="#install">Install</a><a href="#faq">FAQ</a><a class="pill" id="nav-dl" href="#get">Download</a></div>
 </div></nav>
 
 <header class="band lilac hero" id="top"><div class="wrap">
   <div class="art" data-art="welcome"></div>
   <h1><span style="animation-delay:.1s">Keep</span> <span style="animation-delay:.18s">AI</span> <span style="animation-delay:.26s">a</span> <span style="animation-delay:.34s">tutor,</span> <span style="animation-delay:.42s">not</span> <span style="animation-delay:.5s">a</span> <span style="animation-delay:.58s">shortcut.</span></h1>
   <p class="lead">HonestHands checks every message you’re about to send to an AI against <b>your class’s own rules</b> and warns you first. You can always send anyway. It’s just recorded.</p>
-  <a class="dl" href="HonestHands.dmg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Mac</a>
-  <p class="fine">Free · macOS, Apple silicon · about 2 GB of AI downloads once, on first launch</p>
+  <div id="get">
+    <p class="detect" id="detect"><span class="sp"></span><span id="detect-text">Detecting your computer…</span></p>
+    <a class="dl" id="dl-main" href="HonestHands.dmg" download hidden></a>
+    <div class="dlrow" id="dl-both" hidden>
+      <a class="dl" href="HonestHands.dmg" download><svg class="osi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Download for Mac</span></a>
+      <a class="dl" href="HonestHands-Setup.exe" download><svg class="osi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l7.6-1.05v7.1H3zM11.7 4.4L21 3v8.65h-9.3zM3 12.35h7.6v7.1L3 18.4zM11.7 12.35H21V21l-9.3-1.3z"/></svg><span>Download for Windows</span></a>
+    </div>
+    <p class="fine" id="fine"></p>
+    <p class="also" id="also" hidden></p>
+    <noscript><p class="fine"><a href="HonestHands.dmg" download>Download for Mac</a> · <a href="HonestHands-Setup.exe" download>Download for Windows</a></p></noscript>
+  </div>
   <p class="verse">“Let the thief no longer steal, but rather let him labor, doing honest work with his own hands, so that he may have something to share with anyone in need.” <b>Ephesians 4:28</b></p>
 </div></header>
 
@@ -130,7 +155,7 @@ footer .verse{margin:0 auto 14px}
 </div></section>
 
 <section class="band sky"><div class="wrap split rev">
-  <div class="rv"><span class="tag">Private by design</span><h2>The AI runs on your Mac.</h2>
+  <div class="rv"><span class="tag">Private by design</span><h2>The AI runs on your computer.</h2>
     <p>A small built-in AI does the checking, right on your computer. What you type is never sent to a server or a model provider.</p>
     <ul class="ticks"><li>One-time download, then it works offline</li><li>Answers in well under a second</li><li>No account needed to use it</li></ul></div>
   <div class="art rv d1" data-art="ai"></div>
@@ -138,7 +163,7 @@ footer .verse{margin:0 auto 14px}
 
 <section class="band sand flip"><div class="wrap split">
   <div class="rv"><span class="tag">Hard to get around</span><h2>One browser for AI. Every other one is blocked.</h2>
-    <p>Pick Chrome, Edge, Firefox or Safari. Safari’s extension is built into the app, so you only switch it on. During a study session AI websites only work in that browser, and a tiny extension covers sites that hide their send button. The Claude and ChatGPT desktop apps are covered too.</p></div>
+    <p>Pick Chrome, Edge, Firefox or (on a Mac) Safari. Safari’s extension is built into the app, so you only switch it on. During a study session AI websites only work in that browser, and a tiny extension covers sites that hide their send button. The Claude and ChatGPT desktop apps are covered too.</p></div>
   <div class="art rv d1" data-art="browser"></div>
 </div></section>
 
@@ -163,24 +188,37 @@ footer .verse{margin:0 auto 14px}
 
 <section class="band olive flip" id="install"><div class="wrap center">
   <span class="tag">Takes about three minutes</span><h2>Install it in three steps.</h2>
-  <p class="lead rv">HonestHands is signed and notarized by Apple, so it opens like any other Mac app.</p>
-  <div class="steps">
-    <div class="rv"><b>Drag it in</b><span>Open the downloaded file and drag HonestHands to your Applications folder.</span></div>
-    <div class="rv d1"><b>Open it</b><span>Double-click HonestHands. macOS may ask you to confirm it was downloaded from the internet. Click <b>Open</b>.</span></div>
-    <div class="rv d2"><b>Follow the setup</b><span>Allow Accessibility, let the AI download, pick your browser, and add your first class.</span></div>
+  <div class="os-mac">
+    <span class="ostag">On a Mac</span>
+    <p class="lead rv">HonestHands is signed and notarized by Apple, so it opens like any other Mac app.</p>
+    <div class="steps">
+      <div class="rv"><b>Drag it in</b><span>Open the downloaded file and drag HonestHands to your Applications folder.</span></div>
+      <div class="rv d1"><b>Open it</b><span>Double-click HonestHands. macOS may ask you to confirm it was downloaded from the internet. Click <b>Open</b>.</span></div>
+      <div class="rv d2"><b>Follow the setup</b><span>Allow Accessibility, let the AI download, pick your browser, and add your first class.</span></div>
+    </div>
+    <details style="max-width:640px;margin:26px auto 0;text-align:left;background:var(--card);border-radius:20px;padding:4px 22px"><summary>macOS won’t open it?</summary><p>Open <b>Terminal</b>, paste this, press Return, then open the app again:<br><code style="display:block;margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.14);font-size:13.5px;overflow-x:auto">xattr -cr /Applications/HonestHands.app</code>Or: System Settings › Privacy &amp; Security › <b>Open Anyway</b>.</p></details>
   </div>
-  <details style="max-width:640px;margin:26px auto 0;text-align:left;background:var(--card);border-radius:20px;padding:4px 22px"><summary>macOS won’t open it?</summary><p>That’s macOS being cautious about an app that isn’t notarized yet. Open <b>Terminal</b>, paste this, press Return, then open the app again:<br><code style="display:block;margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.14);font-size:13.5px;overflow-x:auto">xattr -cr /Applications/HonestHands.app</code>Or: System Settings › Privacy &amp; Security › scroll down › <b>Open Anyway</b>.</p></details>
-  <p style="margin-top:34px"><a class="dl" href="HonestHands.dmg" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>Download for Mac</a></p>
+  <div class="os-win">
+    <span class="ostag">On Windows</span>
+    <p class="lead rv">The Windows version is new. Windows may warn you the first time, because we haven’t bought a Windows signing certificate yet.</p>
+    <div class="steps">
+      <div class="rv"><b>Run the installer</b><span>Double-click <b>HonestHands-Setup.exe</b>. If a blue “Windows protected your PC” screen appears, click <b>More info</b>, then <b>Run anyway</b>.</span></div>
+      <div class="rv d1"><b>Let it install</b><span>It installs just for you, with no administrator password, and opens HonestHands when it’s done.</span></div>
+      <div class="rv d2"><b>Follow the setup</b><span>Let the AI download, pick Chrome, Edge or Firefox, add the extension, and add your first class.</span></div>
+    </div>
+  </div>
+  <p style="margin-top:34px" id="dl-bottom"><a class="dl" href="HonestHands.dmg" download><svg class="osi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Download for Mac</span></a></p>
 </div></section>
 
 <section class="band lilac" id="faq"><div class="wrap center">
   <h2>Questions</h2>
   <div class="faq">
-    <details><summary>Does it read everything I type?</summary><p>Only what you’re about to send in an AI app or AI website, and only while a study session is on. It’s checked on your Mac and never uploaded. If you create an account, only prompts you sent despite a warning, and counts, are shared with the friends you choose.</p></details>
+    <details><summary>Does it read everything I type?</summary><p>Only what you’re about to send in an AI app or AI website, and only while a study session is on. It’s checked on your computer and never uploaded. If you create an account, only prompts you sent despite a warning, and counts, are shared with the friends you choose.</p></details>
     <details><summary>Can I still send a flagged message?</summary><p>Yes. It’s a nudge, not a wall. Sending anyway is recorded as “overridden”, and that’s what a friend would see if you’ve paired up.</p></details>
     <details><summary>Why does macOS warn me when I open it?</summary><p>It shouldn’t: the app is signed and notarized by Apple. If macOS still blocks it, use System Settings › Privacy &amp; Security › Open Anyway. Nothing is hidden: it’s a small program you can look through.</p></details>
-    <details><summary>Does it have a dark mode?</summary><p>Yes. HonestHands matches your Mac by default, and Settings lets you pick Light or Dark.</p></details>
-    <details><summary>Does it work on Windows or phones?</summary><p>Not yet. For now it covers AI apps and AI websites on a Mac.</p></details>
+    <details><summary>Does it have a dark mode?</summary><p>Yes. HonestHands matches your system by default, and Settings lets you pick Light or Dark.</p></details>
+    <details><summary>Does it work on Windows or phones?</summary><p>It works on Mac and Windows computers. Phones aren’t covered yet.</p></details>
+    <details><summary>Why does Windows warn me when I run the installer?</summary><p>Windows shows a “Windows protected your PC” screen for any program that isn’t signed with a paid Windows certificate, and ours isn’t yet. Click <b>More info</b>, then <b>Run anyway</b>. We plan to sign it.</p></details>
     <details><summary>Can someone just quit it?</summary><p>Outside a timed lock-in, yes: it’s honor system plus accountability. In a timed lock-in the app relaunches itself if it’s force-quit, and the only ways out early are your PIN or a friend releasing you. A determined person with Terminal can still get around it, and we’d rather say that plainly.</p></details>
   </div>
 </div></section>
@@ -205,6 +243,39 @@ const io = new IntersectionObserver((es) => es.forEach(e => {
 document.querySelectorAll('.rv, .hero .art').forEach(n => io.observe(n));
 document.querySelectorAll('.art').forEach(n => { if (!n.classList.contains('rv')) io.observe(n); });
 document.querySelectorAll('.art').forEach(oartParallax);
+
+// ---- the download button follows the visitor's computer
+(function () {
+  const ICONS = { mac: `<svg class="osi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>`, windows: `<svg class="osi" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.6l7.6-1.05v7.1H3zM11.7 4.4L21 3v8.65h-9.3zM3 12.35h7.6v7.1L3 18.4zM11.7 12.35H21V21l-9.3-1.3z"/></svg>` };
+  const FILES = {
+    mac: { href: 'HonestHands.dmg', label: 'Download for Mac', name: 'a Mac', fine: 'Free · macOS, Apple silicon · about 2 GB of AI downloads once, on first launch' },
+    windows: { href: 'HonestHands-Setup.exe', label: 'Download for Windows', name: 'Windows', fine: 'Free · Windows, 64-bit · about 2 GB of AI downloads once, on first launch' },
+  };
+  const ua = navigator.userAgent || '', pf = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  let os = 'other';
+  if (/iPhone|iPad|iPod|Android/i.test(ua)) os = 'mobile';
+  else if (/Win/i.test(pf) || /Windows/i.test(ua)) os = 'windows';
+  else if (/Mac/i.test(pf) || /Macintosh|Mac OS X/i.test(ua)) os = navigator.maxTouchPoints > 1 ? 'mobile' : 'mac';
+  const $ = (id) => document.getElementById(id);
+  const btn = (k) => `${ICONS[k]}<span>${FILES[k].label}</span>`;
+  setTimeout(() => {
+    const det = $('detect'), main = $('dl-main'), both = $('dl-both'), fine = $('fine'), also = $('also');
+    det.classList.add('done');
+    if (os === 'mac' || os === 'windows') {
+      const other = os === 'mac' ? 'windows' : 'mac';
+      $('detect-text').textContent = `Looks like you’re on ${FILES[os].name}`;
+      main.innerHTML = btn(os); main.href = FILES[os].href; main.hidden = false; main.classList.add('reveal');
+      fine.textContent = FILES[os].fine;
+      also.innerHTML = `${other === 'mac' ? 'Using a Mac?' : 'Using Windows?'} <a href="${FILES[other].href}" download>${FILES[other].label}</a>`; also.hidden = false;
+      document.documentElement.dataset.os = os; document.body.dataset.os = os;
+      $('nav-dl').href = FILES[os].href; $('nav-dl').setAttribute('download', '');
+      $('dl-bottom').innerHTML = `<a class="dl" href="${FILES[os].href}" download>${btn(os)}</a>`;
+    } else {
+      $('detect-text').textContent = os === 'mobile' ? 'HonestHands is for Mac and Windows computers. Open this page on your computer, or pick one:' : 'Pick your computer:';
+      both.hidden = false; both.classList.add('reveal'); fine.textContent = 'Free · about 2 GB of AI downloads once, on first launch';
+    }
+  }, 750);
+})();
 </script>
 </body>
 </html>
