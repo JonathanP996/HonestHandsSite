@@ -1,6 +1,6 @@
 {
-  "build": 14,
+  "build": 15,
   "version": "1.1",
-  "notes": "Alerts now show the HonestHands icon and open the app when clicked.",
+  "notes": "Messages show prompts as picture cards, a stuck Enter key clears itself, timed options load right away, alerts use the app icon, and the extension has the HonestHands icon.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }

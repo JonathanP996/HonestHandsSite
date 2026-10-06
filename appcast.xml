@@ -3,13 +3,13 @@
   <channel>
     <title>HonestHands</title>
     <item>
-      <title>Version 1.1 (build 14)</title>
-      <pubDate>Mon, 05 Oct 2026 22:59:19 -0000</pubDate>
-      <sparkle:version>14</sparkle:version>
+      <title>Version 1.1 (build 15)</title>
+      <pubDate>Tue, 06 Oct 2026 03:48:24 -0000</pubDate>
+      <sparkle:version>15</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[Alerts now show the HonestHands icon and open the app when clicked.]]></description>
-      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="kkdUs4H6NEh2AkFinDLr5HGQvLZRmIvMgvL7Nln043hD4O1Ehbfc7JFocKemgaAOkrycRIeG3LKkXsZeAAmYBg==" length="40636474"/>
+      <description><![CDATA[Messages show prompts as picture cards, a stuck Enter key clears itself, timed options load right away, alerts use the app icon, and the extension has the HonestHands icon.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="KRvnIB5B1fzg/BKGUC2AFkrhl1pa8+H9e27rwCnGmiXhOBdzbKSr54Iq0KdzhvTaVNFDMEugXgQ4925115AnDw==" length="40939931"/>
     </item>
   </channel>
 </rss>
