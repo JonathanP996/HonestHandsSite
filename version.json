@@ -1,6 +1,6 @@
 {
-  "build": 16,
+  "build": 17,
   "version": "1.1",
-  "notes": "Removed the test alert button from Settings.",
+  "notes": "Searches are checked wherever you start them, Google's AI Overview and AI Mode are turned off during a session, pictures are checked, and class rules are read in much more detail.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }

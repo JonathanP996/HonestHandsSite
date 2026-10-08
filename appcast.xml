@@ -3,13 +3,13 @@
   <channel>
     <title>HonestHands</title>
     <item>
-      <title>Version 1.1 (build 16)</title>
-      <pubDate>Tue, 06 Oct 2026 03:55:39 -0000</pubDate>
-      <sparkle:version>16</sparkle:version>
+      <title>Version 1.1 (build 17)</title>
+      <pubDate>Thu, 08 Oct 2026 01:49:29 -0000</pubDate>
+      <sparkle:version>17</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[Removed the test alert button from Settings.]]></description>
-      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="GfWtmntZXNeENwet5f096CjNenEU2CT10DrWFuhMheScCEFpjFaaW40yrUTq3x2Xs/galekyzQ1KweYUeIrmDA==" length="40940525"/>
+      <description><![CDATA[Searches are checked wherever you start them, Google's AI Overview and AI Mode are turned off during a session, pictures are checked, and class rules are read in much more detail.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="VFV9C/fmnajAfCXMlSmZzh7PeoFAkbCxzRczgtqij0WBIO0u55NupkoUBtSK9wzvxE40sdhMjFkHAuZOTFC3Cw==" length="40983142"/>
     </item>
   </channel>
 </rss>
