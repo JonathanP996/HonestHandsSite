@@ -1,6 +1,6 @@
 {
-  "build": 17,
+  "build": 18,
   "version": "1.1",
-  "notes": "Searches are checked wherever you start them, Google's AI Overview and AI Mode are turned off during a session, pictures are checked, and class rules are read in much more detail.",
+  "notes": "Classes are no longer created automatically when you import from Canvas: assignments are added only to classes you already have.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
