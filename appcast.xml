@@ -3,13 +3,13 @@
   <channel>
     <title>HonestHands</title>
     <item>
-      <title>Version 1.1 (build 18)</title>
-      <pubDate>Thu, 05 Nov 2026 16:26:52 -0000</pubDate>
-      <sparkle:version>18</sparkle:version>
+      <title>Version 1.1 (build 20)</title>
+      <pubDate>Sat, 14 Nov 2026 20:43:04 -0000</pubDate>
+      <sparkle:version>20</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[Classes are no longer created automatically when you import from Canvas: assignments are added only to classes you already have.]]></description>
-      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="4fFqc2t8j0SedPotzhB6fQCdOsPvYQvkdJmgMlj+0zJapRkzRvhAMOXA5AbZzj++MTdRrdrmxfs4BRd6vRn+DQ==" length="41167764"/>
+      <description><![CDATA[Fixes a false warning on ordinary coding questions (like asking which numpy function to use), and Canvas import no longer creates classes by itself.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="s5Tqzx6Gl69zMrkalKGiM0N3vJ8GACeGxB6rQeqFw+38b3WDbIaKvouKWg7CR1pvkkzP9D6GfrTionak/j6XCg==" length="41258314"/>
     </item>
   </channel>
 </rss>
