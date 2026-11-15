@@ -3,13 +3,13 @@
   <channel>
     <title>HonestHands</title>
     <item>
-      <title>Version 1.1 (build 20)</title>
-      <pubDate>Sat, 14 Nov 2026 20:43:04 -0000</pubDate>
-      <sparkle:version>20</sparkle:version>
+      <title>Version 1.1 (build 21)</title>
+      <pubDate>Sun, 15 Nov 2026 17:03:24 -0000</pubDate>
+      <sparkle:version>21</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[Fixes a false warning on ordinary coding questions (like asking which numpy function to use), and Canvas import no longer creates classes by itself.]]></description>
-      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="s5Tqzx6Gl69zMrkalKGiM0N3vJ8GACeGxB6rQeqFw+38b3WDbIaKvouKWg7CR1pvkkzP9D6GfrTionak/j6XCg==" length="41258314"/>
+      <description><![CDATA[In a long AI chat, HonestHands now asks you to paste your class rules again after 8 prompts (the AI slowly forgets rules from the start of a chat). It keeps count across tabs, and you can change the number in Settings.]]></description>
+      <enclosure url="https://honesthands-site.vercel.app/HonestHands.dmg" type="application/octet-stream" sparkle:edSignature="aNaVC85fahAHEgIIfqb+asb8MAuLNsM/eduYsBcqF2wmRssZHXy1F2M8ZWOJRkGan3b809PfrTSvZDB1eGMoAw==" length="41415443"/>
     </item>
   </channel>
 </rss>

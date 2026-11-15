@@ -1,6 +1,6 @@
 {
-  "build": 20,
+  "build": 21,
   "version": "1.1",
-  "notes": "Fixes a false warning on ordinary coding questions (like asking which numpy function to use), and Canvas import no longer creates classes by itself.",
+  "notes": "In a long AI chat, HonestHands now asks you to paste your class rules again after 8 prompts (the AI slowly forgets rules from the start of a chat). It keeps count across tabs, and you can change the number in Settings.",
   "url": "https://honesthands-site.vercel.app/HonestHands.dmg"
 }
